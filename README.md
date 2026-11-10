@@ -1,89 +1,51 @@
 # Supradeep — Studio Portfolio
 
-A complete, standalone portfolio using React, TypeScript, Vite and Three.js. It follows the warm ivory Studio design selected in the conversation. All application code and the required visual assets are included.
+A responsive React, TypeScript, Vite and Three.js portfolio with a warm ivory design.
 
-## Run on your laptop
+## Run locally
 
-Install Node.js 22.13 or newer, then open a terminal inside this folder:
+Use Node.js 22.13 or newer.
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open the local address printed by Vite. No API keys or environment variables are required.
-
 ## Production build
 
 ```bash
 npm run build
-npm run preview
 ```
 
-The production website is generated in `dist/`. `npm run preview` is for checking the build locally.
+The static website is generated in `dist/`.
 
-## Upload to GitHub
+## Render deployment
 
-1. Extract the ZIP.
-2. Open the `supradeep-portfolio` folder.
-3. Create an empty GitHub repository.
-4. Upload the contents of this folder, including `src`, `public`, `index.html`, configuration files, `package.json`, and `package-lock.json`.
-5. Do not upload `node_modules` or `dist`; these are generated locally and ignored by `.gitignore`.
+Create a **Static Site** connected to this repository, using:
 
-Alternatively, from this folder:
-
-```bash
-git init
-git add .
-git commit -m "Add Studio portfolio"
-git branch -M main
-git remote add origin YOUR_GITHUB_REPOSITORY_URL
-git push -u origin main
-```
-
-Replace `YOUR_GITHUB_REPOSITORY_URL` with the URL of your empty repository. A GitHub repository stores the code; publishing a website requires hosting configuration as a separate step.
-
-## Hosting settings
-
-For a static host that builds from GitHub:
-
-- Install command: `npm ci`
-- Build command: `npm run build`
-- Publish/output directory: `dist`
-- Node.js: 22.13 or newer
-
-The Vite base is relative (`./`) and asset references use `import.meta.env.BASE_URL`, so the built site can also be served from a repository subdirectory. This is a static application with no backend service.
-
-## Where to edit
-
-| File | Purpose |
+| Setting | Value |
 | --- | --- |
-| `src/App.tsx` | Name, biography, skills, projects, contact links and page sections |
-| `src/workspace.tsx` | Procedural live Three.js room and fallback illustration |
-| `src/styles.css` | Colours, typography, responsive layouts and animations |
-| `public/studio-preview.webp` | Studio illustration for devices without WebGL |
-| `public/saragadam-supradeep-resume.pdf` | Downloadable resume |
-| `public/favicon.svg` | Browser icon |
-| `index.html` | Page title, description and social metadata |
+| Branch | `main` |
+| Root directory | Leave empty |
+| Build command | `npm ci && npm run build` |
+| Publish directory | `dist` |
+| Start command | Not required |
 
-The content comes from the uploaded Saragadam Supradeep resume. Update it before publishing under another person's name.
+After updating this repository, deploy the latest commit. `npm run dev` is for local development.
 
-## Included interactions
+## Project files
 
-- A live Three.js workspace with furniture, plants, shadows, ambient animation and pointer response.
-- An illustrated, animated fallback when WebGL is unavailable.
-- A pause/play control and system reduced-motion support.
-- Project category filters and accessible detail dialogs.
-- Escape dismissal, focus restoration, and keyboard focus styles.
-- Mobile navigation, scroll reveals, contact email links and email copying.
-- Project repositories, professional profiles and resume download.
+- `src/App.tsx`: page sections, projects, biography and contact links.
+- `src/workspace.tsx`: procedural Three.js workspace and illustrated fallback.
+- `src/styles.css`: responsive design and animations.
+- `src/main.tsx`: application entry point.
+- `public/studio-preview.webp`: original studio illustration.
+- `public/favicon.svg`: browser icon.
 
-## Important implementation details
+The resume button opens an email request. A resume PDF is not published in this repository.
 
-The live 3D room is procedural geometry. It is not the same asset as the photorealistic illustration fallback. The illustration was generated for this design and is included. The preview browser used during development disabled WebGL, so the live 3D rendering could not be visually verified there; fallback rendering and page interactions were checked instead.
+The live 3D room uses procedural geometry. Browsers without WebGL show an animated illustration instead. Reduced-motion preferences and animation pause are supported. No API keys or backend are required.
 
-The email link opens a visitor's email application. There is no backend contact form. Fonts load from Google Fonts, with local serif and sans-serif fallbacks if unavailable. There are no analytics, accounts or paid APIs.
+## Checks
 
-## Validation
-
-The standalone export passes the TypeScript check and Vite production build. Page interactions and desktop/mobile layouts were checked on the hosted version before export. Only the application entry point, build tooling, and portable asset paths changed for this download.
+The project passes TypeScript checking and the Vite production build. The development preview browser disables WebGL, so the live 3D scene could not be visually verified there; the illustration fallback and page interactions were checked.
